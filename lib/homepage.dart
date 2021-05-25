@@ -79,6 +79,7 @@ class _HomePageState extends State<HomePage> {
         uri,
         headers: <String, String>{
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin":"*",
         },
         body: convert
             .jsonEncode(<String, String>{"query": messageController.text}),
@@ -94,10 +95,6 @@ class _HomePageState extends State<HomePage> {
     data.add(message);
     _listkey.currentState.insertItem(data.length - 1);
   }
-
-  // http.Client getClient() {
-  //   return http.Client();
-  // }
 }
 
 Widget buildItem(int index, Animation animation, String data) {
