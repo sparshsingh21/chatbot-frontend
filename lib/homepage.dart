@@ -13,7 +13,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final GlobalKey<AnimatedListState> _listkey = GlobalKey();
   List<String> data = [];
-  final uri = Uri.parse("http://chatbot-pyt.herokuapp.com/bot");
+  final uri = Uri.parse("https://chatbot-pyth.herokuapp.com/bot");
   TextEditingController messageController = TextEditingController();
   @override
   Widget build(BuildContext context) {
