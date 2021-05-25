@@ -71,28 +71,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   final httpClient = http.Client();
-  // void getResponse() {
-  //   if (messageController.text.length > 0) {
-  //     this.insert(messageController.text);
-  //     var client = getClient();
-  //     try {
-  //       client.post(uri, body: {"query": messageController.text})
-  //         ..then((response) {
-  //           print(response.body);
-  //           Map<String, dynamic> data = jsonDecode(response.body);
-  //           insert(data['response'] + "<bot>");
-  //         });
-  //     } catch (e) {
-  //       insert(e.toString());
-  //     } finally {
-  //       client.close();
-  //       messageController.clear();
-  //     }
-  //   }
-  // }
-
   Future getResponse() async {
-    Map<String, dynamic> body = {"query": messageController.text};
     if (messageController.text.length > 0) {
       print(messageController.text);
       insert(messageController.text);
@@ -104,12 +83,7 @@ class _HomePageState extends State<HomePage> {
         body: convert
             .jsonEncode(<String, String>{"query": messageController.text}),
       );
-      print("Yaha tak pohoch gaya bhai");
       messageController.clear();
-
-      print(response.body);
-      // Map<String, dynamic> parsedData = jsonDecode(response.body);
-      // insert(parsedData['response'] + "<bot>");
       var jsonRes = convert.jsonDecode(response.body) as Map<String, dynamic>;
       var res = jsonRes['response'];
       insert(res + "<bot>");
